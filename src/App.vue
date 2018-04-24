@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>{{ titulo }}</h1>
-    <img v-bind:src="foto.url" v-bind:alt="foto.titulo">
+    <img :src="foto.url" :alt="foto.titulo">
   </div>
 </template>
 

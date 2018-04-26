@@ -5,9 +5,16 @@ Vue.directive('meu-transform', {
         let current = 0;
         el.addEventListener('dblclick', function () {
             let incremento = binding.value || 90;
-            current += incremento;
+
+            if (binding.modifiers.reverse) {
+                current -= incremento;
+            } else {
+                current += incremento;
+            }
+
             this.style.transition = "transform 0.5s";
-            this.style.transform = `rotate(${current}deg)`;
+            if (binding.modifiers.animate)
+                this.style.transform = `rotate(${current}deg)`;
         });
     }
 });

@@ -9,6 +9,11 @@ export default class FotoService {
   }
 
   cadastra(foto) {
+    if (foto._id) {
+      return this._resource.update({
+        id: foto._id,
+      }, foto);
+    }
     return this._resource.save(foto);
   }
 
@@ -16,5 +21,12 @@ export default class FotoService {
     return this._resource.delete({
       id
     });
+  }
+
+  busca(id) {
+    return this._resource.get({
+        id
+      })
+      .then(res => res.json());
   }
 }

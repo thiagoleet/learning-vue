@@ -32,6 +32,7 @@
 <script>
 import ImagemResponsiva from "../shared/image-responsiva/ImagemResponsiva.vue";
 import Botao from "../shared/botao/Botao.vue";
+import Foto from "../../domain/foto/Foto";
 
 export default {
   components: {
@@ -40,17 +41,13 @@ export default {
   },
   data() {
     return {
-      foto: {
-        titulo: "",
-        url: "",
-        descricao: ""
-      }
+      foto: new Foto()
     };
   },
   methods: {
     grava() {
       console.log("enviar dados para API");
-      this.foto = { titulo: "", url: "", descricao: "" };
+      this.foto = new Foto();
     }
   }
 };
